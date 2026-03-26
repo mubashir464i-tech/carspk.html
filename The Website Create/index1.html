@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>KIA Sportage 2021</title>
+
+<style>
+body {
+    font-family: Arial;
+    background: #f5f5f5;
+    margin: 0;
+}
+
+/* ===== MAIN CONTAINER ===== */
+.container {
+    width: 90%;
+    margin: 30px auto;
+}
+
+/* ===== TITLE ===== */
+.title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* ===== GRID ===== */
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    align-items: stretch; /* IMPORTANT */
+}
+
+/* ===== BOX ===== */
+.box {
+    background: white;
+    border: 1px solid #ddd;
+    display: flex;
+    flex-direction: column;
+}
+.box img {
+    max-height: 300px;
+}
+
+/* ===== HEADER ===== */
+.box-header {
+    background: #f3c718;
+    padding: 10px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.icon {
+    width: 20px;
+    height: 20px;
+}
+
+/* ===== DETAILS ===== */
+.details {
+    padding: 15px;
+    line-height: 28px;
+}
+
+.details span {
+    float: right;
+    font-weight: bold;
+}
+
+/* ===== PHOTO SECTION ===== */
+.main-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    flex: 1;
+}
+
+.thumb-container {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    padding: 10px;
+}
+
+.thumb-container img {
+    width: 80px;
+    height: 60px;
+    object-fit: cover;
+    border: 1px solid #ccc;
+    cursor: pointer;
+}
+
+/* ===== EXTRA BOXES ===== */
+.full {
+    margin-top: 20px;
+}
+
+.button {
+    background: #f3c718;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="title">
+        KIA SPORTAGE 2021 FOR SALE IN KARACHI
+    </div>
+
+    <div class="grid">
+
+        <!-- LEFT SIDE -->
+        <div class="box">
+            <div class="box-header">
+    <img src="Capture.PNG 30.PNG" class="icon">
+    Details
+</div>
+            <div class="details">
+                Demand <span>Rs 6,560,000</span><br>
+                Model <span>Sportage</span><br>
+                Year <span>2021</span><br>
+                Mileage <span>75,000 - 100,000 KM</span><br>
+                City <span>Karachi</span>
+            </div>
+
+            <div class="box-header">Additional Details</div>
+            <div class="details">
+                Transmission <span>Automatic</span><br>
+                Fuel <span>Petrol</span><br>
+                AC <span>✔</span><br>
+                Power Steering <span>✔</span><br>
+                Power Windows <span>✔</span><br>
+                Sunroof <span>✔</span><br>
+                Alloy Rims <span>✖</span>
+            </div>
+        </div>
+
+        <!-- RIGHT SIDE -->
+        <div class="box">
+            <div class="box-header">Photos</div>
+
+            <img id="mainImage" src="https://i.imgur.com/Z6X9Z6M.jpg" class="main-img">
+
+            <div class="thumb-container">
+                <img src="WhatsApp Image 2026-03-19 at 4.30.55 AM (1).jpeg" onclick="changeImg(this)">
+                <img src="WhatsApp Image 2026-03-19 at 4.30.55 AM.jpeg" onclick="changeImg(this)">
+                <img src="WhatsApp Image 2026-03-19 at 4.30.56 AM (1).jpeg" onclick="changeImg(this)">
+                <img src="WhatsApp Image 2026-03-19 at 4.30.56 AM (2).jpeg" onclick="changeImg(this)">
+                <img src="WhatsApp Image 2026-03-19 at 4.30.56 AM.jpeg" onclick="changeImg(this)">
+                <img src="WhatsApp Image 2026-03-19 at 4.30.57 AM (1).jpeg" onclick="changeImg(this)">
+                <img src="WhatsApp Image 2026-03-19 at 4.30.57 AM.jpeg" onclick="changeImg(this)">
+            </div>
+        </div>
+
+    </div>
+
+    <!-- SELLER COMMENTS -->
+    <div class="box full">
+        <div class="box-header">Seller Comments</div>
+        <div class="details">
+            Buy Kia Sportage 2021 located in Karachi online.
+        </div>
+    </div>
+
+    <!-- CONTACT -->
+    <div class="box full">
+        <div class="box-header">Contact Info</div>
+        <div class="details">
+            Car Status: <b>Available</b><br><br>
+            <button class="button">Click here for Contact Details</button>
+        </div>
+    </div>
+
+</div>
+
+<script>
+function changeImg(el){
+    document.getElementById("mainImage").src = el.src;
+}
+</script>
+
+</body>
+</html>

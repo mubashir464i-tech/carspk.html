@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Login & Register Pro</title>
+<style>
+body {
+    font-family: Arial;
+    background: #ddd;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.container {
+    background: #eee;
+    padding: 20px;
+    width: 320px;
+    border-radius: 5px;
+}
+
+h3 { margin-top: 10px; }
+
+label {
+    width: 60px;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+input {
+    width: 190px;
+    padding: 8px;
+    margin: 5px 0;
+    border-radius: 5px;
+    border: 1px solid #aaa;
+}
+
+.small-input {
+    width: 40px;
+    text-align: center;
+}
+
+button {
+    background: linear-gradient(#444, #000);
+    color: white;
+    border: none;
+    padding: 8px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 5px;
+}
+
+button:hover {
+    background: linear-gradient(#000, #444);
+}
+
+.message {
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+
+    <!-- LOGIN -->
+    <h3>Login</h3>
+    <div class="row">
+        <label>Email:</label>
+        <input type="text" id="loginEmail" placeholder="Email">
+    </div>
+    <div class="row">
+        <label>Pass:</label>
+        <input type="password" id="loginPass" placeholder="Password">
+    </div>
+    <div id="loginError" class="message"></div>
+    <button onclick="login()">Login</button>
+
+    <!-- REGISTER -->
+    <h3>Register</h3>
+    <div class="row">
+        <label>Name:</label>
+        <input type="text" id="name" placeholder="Full Name">
+    </div>
+    <div class="row">
+        <label>Email:</label>
+        <input type="text" id="email" placeholder="Email">
+    </div>
+    <div class="row">
+        <label>Pass:</label>
+        <input type="password" id="pass" placeholder="Password">
+    </div>
+    <div class="row">
+        <label>Phone:</label>
+        <input type="text" id="phone" placeholder="Phone Number">
+    </div>
+
+    <!-- Captcha -->
+    <div class="row">
+        <label>(^_^)?</label>
+        <input class="small-input" value="5" disabled>
+        +
+        <input class="small-input" value="8" disabled>
+        =
+        <input class="small-input" id="captcha">
+    </div>
+    <div id="registerError" class="message"></div>
+    <button onclick="register()">Quick Sign-up!</button>
+
+    <!-- Forgot -->
+    <h4>Forgot your password?</h4>
+    <div class="row">
+        <input type="text" id="forgotEmail" placeholder="Email">
+        <button onclick="forgot()">Go!</button>
+    </div>
+    <div id="forgotError" class="message"></div>
+
+</div>
+
+<script>
+// ===== LOGIN =====
+function login() {
+    let email = document.getElementById("loginEmail").value;
+    let pass = document.getElementById("loginPass").value;
+    let errorDiv = document.getElementById("loginError");
+    errorDiv.innerText = "";
+    
+    if (email === "" || pass === "") {
+        errorDiv.style.color = "red";
+        errorDiv.innerText = "Please fill all login fields!";
+        return;
+    }
+
+    // Demo credentials
+    const demoEmail = "test@example.com";
+    const demoPass = "12345";
+
+    if (email === demoEmail && pass === demoPass) {
+        errorDiv.style.color = "green";
+        errorDiv.innerText = "Login Successful 🎉";
+    } else {
+        errorDiv.style.color = "red";
+        errorDiv.innerText = "❌ Wrong Email or Password!";
+    }
+}
+
+// ===== REGISTER =====
+function register() {
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+    let pass = document.getElementById("pass").value;
+    let phone = document.getElementById("phone").value;
+    let captcha = document.getElementById("captcha").value;
+    let errorDiv = document.getElementById("registerError");
+    errorDiv.innerText = "";
+
+    if (name === "" || email === "" || pass === "" || phone === "") {
+        errorDiv.style.color = "red";
+        errorDiv.innerText = "Please fill all fields!";
+        return;
+    }
+
+    if (captcha != 13) {
+        errorDiv.style.color = "red";
+        errorDiv.innerText = "Captcha incorrect!";
+        return;
+    }
+
+    errorDiv.style.color = "green";
+    errorDiv.innerText = "Registration Successful 🎉";
+}
+
+// ===== FORGOT PASSWORD =====
+function forgot() {
+    let email = document.getElementById("forgotEmail").value;
+    let errorDiv = document.getElementById("forgotError");
+    errorDiv.innerText = "";
+
+    if (email === "") {
+        errorDiv.style.color = "red";
+        errorDiv.innerText = "Enter your email!";
+    } else {
+        errorDiv.style.color = "green";
+        errorDiv.innerText = "Password reset link sent (Demo)";
+    }
+}
+</script>
+</body>
+</html>

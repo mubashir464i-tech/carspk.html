@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Used Cars in Pakistan Buy</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, Helvetica, sans-serif;
+}
+
+/* ===== HEADER / NAV ===== */
+header {
+    background-color: black;
+    padding: 15px;
+}
+
+nav {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.nav-btn {
+    background-color: black;
+    color: white;
+    padding: 12px 20px;
+    text-decoration: none;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.nav-btn:hover {
+    color: #f3c718;
+}
+
+.signup-btn {
+    background-color: #f3c718;
+    color: black;
+    border-radius: 25px;
+    padding: 12px 20px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.signup-btn:hover {
+    background-color: white;
+}
+
+
+/* LOGO */
+
+.logo{
+color:white;
+font-size:20px;
+font-weight:bold;
+}
+
+/* MENU */
+
+.menu{
+display:flex;
+gap:20px;
+align-items:center;
+}
+
+.menu a{
+color:white;
+text-decoration:none;
+font-size:15px;
+padding:6px 10px;
+transition:0.3s;
+}
+
+.menu a:hover{
+color:#f3c718;
+}
+/* BLACK SELL BOX */
+
+.sell-box{
+background-color:black;
+padding:40px;
+text-align:center;
+color:white;
+margin-top:20px;
+}
+
+.sell-box h2{
+margin-bottom:20px;
+}
+
+/* FORM */
+
+.sell-form{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:15px;
+}
+
+.sell-form input{
+padding:10px;
+width:200px;
+border:none;
+border-radius:6px;
+}
+
+/* BUTTON */
+
+.sell-form button{
+background:#f3c718;
+border:none;
+padding:10px 25px;
+font-weight:bold;
+border-radius:20px;
+cursor:pointer;
+}
+
+.sell-form button:hover{
+background:white;
+}
+.car-box{
+background:black;
+padding:40px;
+text-align:center;
+color:white;
+}
+
+.tabs button{
+background:#f3c718;
+border:none;
+padding:10px 20px;
+margin:5px;
+border-radius:20px;
+cursor:pointer;
+font-weight:bold;
+}
+
+.form-box{
+margin-top:20px;
+}
+
+.form-box input{
+padding:10px;
+margin:5px;
+border-radius:5px;
+border:none;
+}
+
+.form-box button{
+background:#f3c718;
+border:none;
+padding:10px 20px;
+border-radius:20px;
+cursor:pointer;
+}
+
+</style>
+</head>
+
+<body>
+    <header>
+
+<nav class="nav">
+
+<a href="index4.html" class="nav-btn">Used Cars</a>
+<a href="index3.html" class="nav-btn">New Cars</a>
+<a href="index2.html" class="nav-btn">Sell Car</a>
+<a href="index5.html" class="nav-btn">Bikes</a>
+<a href="index6.html" class="nav-btn">Rides</a>
+<a href="index6.html" class="nav-btn">Photos</a>
+<a href="index2.html" class="signup-btn">Sign Up / Login</a>
+</nav>
+</header>
+<!-- SELL CAR BLACK BOX -->
+
+<section class="sell-box">
+
+<h2>Sell Your Car</h2>
+
+<form class="sell-form">
+
+<input type="text" placeholder="Car Brand (Example: Honda)" required>
+
+<input type="text" placeholder="Honda Model (Example: Civic, City)" required>
+
+<input type="number" placeholder="Car Year (Example: 2020)" required>
+
+<input type="text" placeholder="City" required>
+
+<button type="submit">Sell Car</button>
+
+</form>
+
+</section><!-- SELL CAR BLACK BOX -->
+
+<section class="car-box"><div class="tabs">
+<button onclick="showSell()">Sell Your Car</button>
+<button onclick="showBuy()">Buy Your Car</button>
+</div><div id="sellForm" class="form-box">
+<input type="text" placeholder="Car Brand (Example: Honda)">
+<input type="text" placeholder="Honda Model (Example: Civic)">
+<input type="number" placeholder="Car Year">
+<button>Sell Car</button>
+</div><div id="buyForm" class="form-box" style="display:none;">
+<input type="text" placeholder="Car Brand">
+<input type="text" placeholder="Model">
+<input type="text" placeholder="City">
+<button>Search Car</button>
+</div></section>
+<script>
+
+function showSell(){
+document.getElementById("sellForm").style.display="block";
+document.getElementById("buyForm").style.display="none";
+}
+
+function showBuy(){
+document.getElementById("sellForm").style.display="none";
+document.getElementById("buyForm").style.display="block";
+}
+
+</script>
+</body>
+</html>

@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Used Cars in Pakistan</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        /* ===== RESET ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: url("https://robbreport.com/wp-content/uploads/2024/08/temerario01.jpg?w=800")
+                        repeat-x center top;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        /* ===== HEADER / NAV ===== */
+        header {
+            background-color: black;
+            padding: 15px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: flex-end;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .nav-btn {
+            background-color: black;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            font-size: 15px;
+            cursor: pointer;
+        }
+        .nav-btn:hover {
+            color: #f3c718;
+        }
+        .signup-btn {
+            background-color: #f3c718;
+            color: black;
+            border-radius: 25px;
+            padding: 12px 20px;
+            font-weight: bold;
+        }
+        .signup-btn:hover {
+            background-color: white;
+        }
+
+        /* ===== MAIN SEARCH BOX ===== */
+        main {
+            margin-top: 200px;
+        }
+
+        .search-box {
+            max-width: 900px;
+            margin: auto;
+            background-color: rgba(0, 0, 0, 0.75);
+            color: white;
+            border-radius: 25px;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .search-box h2 {
+            font-size: 32px;
+            margin-bottom: 5px;
+        }
+
+        .filter-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 10px;
+        }
+
+        .filter-btn {
+            background-color: #ffffffc9;
+            color: black;
+            border-radius: 25px;
+            padding: 6px 27px;
+            font-size: 14px;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .filter-btn.primary {
+            background-color: #f3c718;
+        }
+
+        /* ===== CAR LOGOS ===== */
+        .brands {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .brand-card {
+            background-color: white;
+            width: 75px;
+            padding: 8px;
+            border-radius: 12px;
+            text-align: center;
+            transition: transform 0.2s ease;
+        }
+
+        .brand-card:hover {
+            transform: scale(1.05);
+        }
+
+        .brand-card img {
+            width: 40px;
+            height: auto;
+            margin-bottom: 5px;
+        }
+
+        .brand-name {
+            font-size: 12px;
+            color: black;
+            font-weight: bold;
+        }
+
+        /* ===== FOOTER NOTE ===== */
+        .recent {
+            max-width: 700px;
+            margin: 30px auto;
+            color: black;
+            padding: 0 15px;
+        }
+        
+
+        .line {
+           width: 120px;
+           height: 3px;
+           background: #f4c400;
+           border: none;
+           margin-bottom: 20px;
+        }
+
+        .cars-wrapper {
+    display: flex;
+    gap: 25px;
+    justify-content: flex-start; /* ya center karna ho to center karein */
+    flex-wrap: nowrap;           /* ek line me hi rahe */
+}
+
+.car-picture {
+    position: relative;
+    width: 300px;
+    height: 400px;
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    text-decoration: none;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease; /* animation smooth */
+}
+.car-picture:hover {
+    transform: scale(1.05); /* hover par thoda bada */
+}
+
+.car-picture img {
+    width: 100%;
+    height: 60%;           /* image height fix */
+    object-fit: cover;     /* crop without stretching */
+    display: block;
+}
+
+.brand-car {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    background: rgba(0,0,0,0.6);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: transform 0.2s ease;
+}
+
+.car-info {
+    padding: 15px;
+    text-align: center;
+    font-size: 14px;
+    color: gray;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.car-info h5 {
+    margin-top: 10px;
+    color: black;
+}
+.Car-button {
+    background-color: #f3c718;
+}
+ .footer {
+    background-color: #222;
+    padding: 40px 20px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.footer-col {
+    width: 220px;
+    margin-bottom: 20px;
+}
+
+.footer-col h3 {
+    color: #f3c718;
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+
+.footer-col a {
+    display: block;
+    color: #ccc;
+    text-decoration: none;
+    margin: 6px 0;
+    font-size: 14px;
+}
+
+.footer-col a:hover {
+    color: #f3c718;
+}
+
+/* 📱 Mobile responsive */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-col {
+        width: 100%;
+    }
+}
+.model-buttons {
+  display: none;
+}
+
+
+    </style>
+  </head>
+
+ <body>
+
+  <header>
+    <nav>
+        <a href="index4.html" class="nav-btn">Used Cars</a>
+        <a href="index3.html" class="nav-btn">New Cars</a>
+        <a href="index2.html" class="nav-btn">Sell Car</a>
+        <a href="index5.html" class="nav-btn">Bikes</a>
+        <a href="index6.html" class="nav-btn">Rides</a>
+        <a href="index6.html" class="nav-btn">Photos</a>
+        <a href="index2.html" class="signup-btn">Sign Up / Login</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="search-box">
+        <h2>Find Used Cars in Pakistan</h2>
+
+       <div class="filter-buttons">
+    <button class="filter-btn">Make</button>
+    <button class="filter-btn primary">Model</button>
+    <button class="filter-btn">City</button>
+    <button class="filter-btn">Advance Search</button>
+</div>
+
+<div class="model-buttons" style="display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; margin-top: 10px;">
+    <button class="filter-btn" style="min-width: 80px;">Corolla</button>
+    <button class="filter-btn" style="min-width: 80px;">City</button>
+    <button class="filter-btn" style="min-width: 80px;">Cultus</button>
+    <button class="filter-btn" style="min-width: 80px;">Civic</button>
+    <button class="filter-btn" style="min-width: 80px;">Mehran</button>
+    <button class="filter-btn" style="min-width: 80px;">Alto</button>
+    <button class="filter-btn" style="min-width: 80px;">Swift</button>
+    <button class="filter-btn" style="min-width: 80px;">Vitz</button>
+    <button class="filter-btn" style="min-width: 80px;">Prado</button>
+    <button class="filter-btn" style="min-width: 80px;">Pajero</button>
+</div>
+<div class="model-buttons" style="display: none; justify-content: center; flex-wrap: wrap; gap: 10px; margin-top: 10px;">
+    <button class="filter-btn">Karachi</button>
+    <button class="filter-btn">Faisalabad</button>
+    <button class="filter-btn">Lahore</button>
+    <button class="filter-btn">Islamabad</button>
+    <button class="filter-btn">Hyderabad</button>
+    <button class="filter-btn">Sialkot</button>
+    <button class="filter-btn">Rawalpindi</button>
+    <button class="filter-btn">Quetta</button>
+    <button class="filter-btn">Peshawar</button>
+    <button class="filter-btn">Multan</button>
+</div>
+
+        <div class="brands">
+            <a href="index.html" class="brand-card">
+                <img src="Screenshot 2026-02-22 194945.png" alt="Toyota logo">
+                <div class="brand-name">Toyota</div>
+            </a>
+
+            <a href="index.html" class="brand-card">
+                <img src="Screenshot 2026-02-22 193418.png" alt="Honda logo">
+                <div class="brand-name">Honda</div>
+            </a>
+
+            <a href="index.html" class="brand-card">
+                <img src="Screenshot 2026-02-23 151215.png" alt="Suzuki logo">
+                <div class="brand-name">Suzuki</div>
+            </a>
+
+            <a href="index.html" class="brand-card">
+                <img src="Screenshot 2026-02-23 151254.png" alt="Daihatsu logo">
+                <div class="brand-name">Daihatsu</div>
+            </a>
+            <a href="index.html" class="brand-card">
+                <img src="Screenshot 2026-02-23 151324.png" alt="Hyundai Logo">
+                <div class="brand-name">Hyundai</div>
+            </a>
+            <a href="index.html" class="brand-card">
+                <img src="Screenshot 2026-02-23 151412.png" alt="Mitsubishi Logo">
+                <div class="brand-name">Mitsubishi</div>
+            </a>
+            <a href="index.html" class="brand-card">
+                <img src="Screenshot 2026-02-23 151517.png" alt="Nissan Logo">
+                <div class="brand-name">Nissan</div>
+            </a>
+            <a href="index.html" class="brand-card">
+                <img src="Screenshot 2026-02-23 151549.png" alt="Kia Logo">
+                <div class="brand-name">Kia</div>
+            </a>
+            <a href="index.html" class="brand-card">
+                <img src="Screenshot 2026-02-23 151638.png" alt="BMW Logo">
+                <div class="brand-name">BMW</div>
+            </a>
+            <a href="index.html" class="brand-card">
+                <img src="Screenshot 2026-02-23 151731.png" alt="Mercedes Logo">
+                <div class="brand-name">Mercedes</div>
+            </a>
+        </div>
+    </section>
+  </main>
+
+   <section class="recent">
+    <h4>Recently Added</h4>
+    <hr class="line">
+
+    <div class="cars-wrapper">
+
+    <a href="index1.html" class="car-picture">
+        <img src="Screenshot 2026-03-04 160508.png" alt="">
+        <div class="brand-car">Kia Sportage 2021</div>
+        <div class="car-info">
+            📍 Karachi 🔧 Automatic ⛽ Petrol
+            <h5>Rs- 65.6 Lacs</h5>
+        </div>
+    </a>
+
+    <a href="index7.html" class="car-picture">
+        <img src="Screenshot 2026-03-04 160604.png" alt="">
+        <div class="brand-car">Suzuki Alto 2012</div>
+        <div class="car-info">
+            📍 Karachi 🔧 Manual ⛽ Petrol
+            <h5>Rs- 12.5 Lacs</h5>
+        </div>
+    </a>
+
+    <a href="make?=car" class="car-picture">
+        <img src="Screenshot 2026-03-04 160642.png" alt="">
+        <div class="brand-car">Toyota Corolla 2014</div>
+        <div class="car-info">
+            📍 Karachi 🔧 Manual ⛽ Petrol
+            <h5>Rs- 28 Lacs</h5>
+        </div>
+    </a>
+
+  </div>
+    
+    <div class="cars-wrapper">
+    <a href="make?=car" class="car-picture">
+        <img src="WhatsApp Image 2026-03-04 at 8.59.03 AM.jpeg" alt="">
+        <div class="brand-car">Toyata Corolla 2009</div>
+        <div class="car-info">
+            📍 Abbotabad 🔧 Manual ⛽ Petrol
+            <h5>Rs- 21.0 Lacs</h5>
+        </div>
+    </a>
+
+    <a href="make?=car" class="car-picture">
+        <img src="WhatsApp Image 2026-03-04 at 8.59.03 AM (1).jpeg" alt="">
+        <div class="brand-car">Daihatsu Cuore 2003</div>
+        <div class="car-info">
+            📍 Faisalabad 🔧 Manual ⛽ Petrol
+            <h5>Rs- 6.8 Lacs</h5>
+        </div>
+    </a>
+
+    <a href="make?=car" class="car-picture">
+        <img src="WhatsApp Image 2026-03-04 at 8.59.03 AM (2).jpeg" alt="">
+        <div class="brand-car">Toyata Prado 2025</div>
+        <div class="car-info">
+            📍 Quetta 🔧 Manual ⛽ Petrol
+            <h5>Rs- 45 Lacs</h5>
+        </div>
+    </a>
+</div>
+
+    </section>
+    <section class="Cars">
+        <a href="#"><button class="Car-button">All Used Cars</button></a>
+    </section>
+    <section class="footer">
+  <div class="footer-container">
+
+    <div class="footer-col">
+      <h3>Cars By Make</h3>
+      <a href="#">BMW Cars</a>
+      <a href="#">Honda Cars</a>
+      <a href="#">Mitsubishi Cars</a>
+      <a href="#">Nissan Cars</a>
+      <a href="#">Toyota Cars</a>
+      <a href="#">Hyundai Cars</a>
+      <a href="#">Chevrolet Cars</a>
+    </div>
+
+    <div class="footer-col">
+      <h3>Cars By City</h3>
+      <a href="#">Cars in Karachi</a>
+      <a href="#">Cars in Lahore</a>
+      <a href="#">Cars in Islamabad</a>
+      <a href="#">Cars in Faisalabad</a>
+      <a href="#">Cars in Multan</a>
+      <a href="#">Cars in Peshawar</a>
+      <a href="#">Cars in Quetta</a>
+    </div>
+
+    <div class="footer-col">
+      <h3>Bikes By City</h3>
+      <a href="#">Bikes in Karachi</a>
+      <a href="#">Bikes in Lahore</a>
+      <a href="#">Bikes in Rawalpindi</a>
+      <a href="#">Bikes in Faisalabad</a>
+      <a href="#">Bikes in Bahawalpur</a>
+      <a href="#">Bikes in Peshawar</a>
+    </div>
+
+    <div class="footer-col">
+      <h3>Sell</h3>
+      <a href="#">Sell Your Car</a>
+      <a href="#">Sell Your Bike</a>
+      <br>
+      <img src="Capture.PNG 9.PNG" alt="" style="width:100px;">
+    </div>
+
+  </div>
+</section>
+    <script>
+        
+const filterBtns = document.querySelectorAll(".filter-btn");
+
+const brandsContainer = document.querySelector(".brands");
+const modelContainer = document.querySelectorAll(".model-buttons")[0];
+const cityContainer = document.querySelectorAll(".model-buttons")[1];
+
+// Create Advance Box dynamically
+let advanceBox = document.createElement("div");
+advanceBox.style.display = "none";
+advanceBox.style.marginTop = "15px";
+advanceBox.style.background = "rgba(0,0,0,0.7)";
+advanceBox.style.padding = "20px";
+advanceBox.style.borderRadius = "15px";
+advanceBox.style.color = "white";
+
+// Inner HTML (form)
+advanceBox.innerHTML = `
+  <div style="display:flex; gap:20px; margin-bottom:10px;">
+    <div style="flex:1;">
+      <label>Make</label>
+      <select style="width:100%; padding:8px;">
+        <option>Any Make</option>
+        <option>Toyota</option>
+        <option>Honda</option>
+      </select>
+    </div>
+
+    <div style="flex:1;">
+      <label>Model</label>
+      <select style="width:100%; padding:8px;">
+        <option>Any Model</option>
+        <option>Corolla</option>
+        <option>Civic</option>
+      </select>
+    </div>
+  </div>
+
+  <div style="display:flex; gap:20px; margin-bottom:10px;">
+    <div style="flex:1;">
+      <label>Year</label>
+      <input type="range" min="1980" max="2026" style="width:100%;">
+    </div>
+
+    <div style="flex:1;">
+      <label>Price</label>
+      <input type="range" min="100000" max="50000000" style="width:100%;">
+    </div>
+  </div>
+
+  <div style="display:flex; gap:20px;">
+    <div style="flex:1;">
+      <label>City</label>
+      <select style="width:100%; padding:8px;">
+        <option>Any City</option>
+        <option>Karachi</option>
+        <option>Lahore</option>
+      </select>
+    </div>
+
+    <div style="display:flex; align-items:end;">
+      <button style="background:#f1c40f; border:none; padding:10px 20px; border-radius:8px; font-weight:bold;">
+        Find Cars
+      </button>
+    </div>
+  </div>
+`;
+
+// Add to DOM
+document.querySelector(".search-box").appendChild(advanceBox);
+
+// Initial state
+brandsContainer.style.display = "flex";
+modelContainer.style.display = "none";
+cityContainer.style.display = "none";
+advanceBox.style.display = "none";
+
+filterBtns.forEach(btn => {
+  btn.addEventListener("click", () => {
+
+    // active button
+    filterBtns.forEach(b => b.classList.remove("primary"));
+    btn.classList.add("primary");
+
+    let text = btn.textContent.trim();
+
+    // hide all
+    brandsContainer.style.display = "none";
+    modelContainer.style.display = "none";
+    cityContainer.style.display = "none";
+    advanceBox.style.display = "none";
+
+    if (text === "Make") {
+      brandsContainer.style.display = "flex";
+    } 
+    else if (text === "Model") {
+      modelContainer.style.display = "flex";
+    } 
+    else if (text === "City") {
+      cityContainer.style.display = "flex";
+    } 
+    else if (text === "Advance Search") {
+      advanceBox.style.display = "block";
+    }
+
+  });
+});
+// Initial state FIX
+brandsContainer.style.display = "flex";
+modelContainer.style.display = "none";
+cityContainer.style.display = "none";
+advanceBox.style.display = "none";
+
+// ✅ Make ko default active karo
+filterBtns.forEach(b => b.classList.remove("primary"));
+
+filterBtns.forEach(btn => {
+  if (btn.textContent.trim() === "Make") {
+    btn.classList.add("primary");
+  }
+});
+/* ===== BRAND CLICK ===== */
+
+
+/* ===== CAR CLICK DETAILS ===== */
+const buttons = document.querySelectorAll(".city-btn");
+
+    buttons.forEach(btn => {
+        btn.addEventListener("click", () => {
+            buttons.forEach(b => b.classList.remove("active"));
+            btn.classList.add("active");
+        });
+    });
+
+
+/* ===== SIMPLE SEARCH (OPTIONAL ADD INPUT LATER) ===== */
+function searchCars(keyword) {
+    const allCars = document.querySelectorAll(".car-picture");
+
+    allCars.forEach(car => {
+        const text = car.innerText.toLowerCase();
+
+        if (text.includes(keyword.toLowerCase())) {
+            car.style.display = "flex";
+        } else {
+            car.style.display = "none";
+        }
+    });
+}
+
+
+/* ===== ALL USED CARS BUTTON ===== */
+const allBtn = document.querySelector(".Car-button");
+
+allBtn.addEventListener("click", () => {
+    document.querySelectorAll(".car-picture").forEach(car => {
+        car.style.display = "flex";
+    });
+});
+
+</script>
+  </body>
+</html>

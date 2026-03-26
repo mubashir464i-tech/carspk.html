@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Used Cars in Pakistan In Sell</title>
+    <style>
+        /* ===== RESET ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: url("https://robbreport.com/wp-content/uploads/2024/08/temerario01.jpg?w=800")
+                        repeat-x center top;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        /* ===== HEADER / NAV ===== */
+        header {
+            background-color: black;
+            padding: 15px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: flex-end;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .nav-btn {
+            background-color: black;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            font-size: 15px;
+            cursor: pointer;
+        }
+        .nav-btn:hover {
+            color: #f3c718;
+        }
+        .signup-btn {
+            background-color: #f3c718;
+            color: black;
+            border-radius: 25px;
+            padding: 12px 20px;
+            font-weight: bold;
+        }
+        .signup-btn:hover {
+            background-color: white;
+        }
+         /* ===== MAIN SEARCH BOX ===== */
+        main {
+    margin-top: 150px;
+}
+
+.search-box {
+    max-width: 900px;
+    margin: auto;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 25px;
+    border-radius: 20px;
+    color: white;
+    text-align: center;
+}
+
+.search-box h2 {
+    margin-bottom: 20px;
+    font-size: 28px;
+}
+
+.form-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin: 10px 0;
+    flex-wrap: wrap;
+}
+
+select, input[type="range"] {
+    flex: 1;
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+}
+
+.search-btn {
+    background: #f3c718;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.search-btn:hover {
+    background: white;
+}
+.footer {
+    background-color: #222;
+    padding: 40px 20px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.footer-col {
+    width: 220px;
+    margin-bottom: 20px;
+}
+
+.footer-col h3 {
+    color: #f3c718;
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+
+.footer-col a {
+    display: block;
+    color: #ccc;
+    text-decoration: none;
+    margin: 6px 0;
+    font-size: 14px;
+}
+
+.footer-col a:hover {
+    color: #f3c718;
+}
+
+/* 📱 Mobile responsive */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-col {
+        width: 100%;
+    }
+}
+br {
+    margin: 100px;
+}
+    </style>
+</head>
+<body>
+    <header>
+    <nav>
+        <a href="index4.html" class="nav-btn">Used Cars</a>
+        <a href="index3.html" class="nav-btn">New Cars</a>
+        <a href="index2.html" class="nav-btn">Sell Car</a>
+        <a href="index5.html" class="nav-btn">Bikes</a>
+        <a href="index6.html" class="nav-btn">Rides</a>
+        <a href="index6.html" class="nav-btn">Photos</a>
+        <a href="index2.html" class="signup-btn">Sign Up / Login</a>
+    </nav>
+  </header>
+  <main>
+    <section class="search-box">
+        <h2>Used Cars in Pakistan</h2>
+
+        <div class="form-row">
+            <select>
+                <option>Any Make</option>
+                <option>Honda</option>
+                <option>Toyota</option>
+            </select>
+
+            <select>
+                <option>Any Model</option>
+                <option>Civic</option>
+                <option>Corolla</option>
+            </select>
+        </div>
+
+        <div class="form-row">
+    <label>Year:</label>
+    <span id="yearValue">1980 - 2026</span>
+    <input type="range" id="yearMin" min="1980" max="2026" value="1980">
+    <input type="range" id="yearMax" min="1980" max="2026" value="2026">
+</div>
+
+<div class="form-row">
+    <label>Price:</label>
+    <span id="priceValue">1 Lac - 50 Lac</span>
+    <input type="range" id="priceMin" min="100000" max="5000000" value="100000">
+    <input type="range" id="priceMax" min="100000" max="5000000" value="5000000">
+</div>
+
+            <button class="search-btn">Find Cars</button>
+        </div>
+    </section>
+</main>
+<br>
+<section class="footer">
+  <div class="footer-container">
+
+    <div class="footer-col">
+      <h3>Cars By Make</h3>
+      <a href="#">BMW Cars</a>
+      <a href="#">Honda Cars</a>
+      <a href="#">Mitsubishi Cars</a>
+      <a href="#">Nissan Cars</a>
+      <a href="#">Toyota Cars</a>
+      <a href="#">Hyundai Cars</a>
+      <a href="#">Chevrolet Cars</a>
+    </div>
+
+    <div class="footer-col">
+      <h3>Cars By City</h3>
+      <a href="#">Cars in Karachi</a>
+      <a href="#">Cars in Lahore</a>
+      <a href="#">Cars in Islamabad</a>
+      <a href="#">Cars in Faisalabad</a>
+      <a href="#">Cars in Multan</a>
+      <a href="#">Cars in Peshawar</a>
+      <a href="#">Cars in Quetta</a>
+    </div>
+
+    <div class="footer-col">
+      <h3>Bikes By City</h3>
+      <a href="#">Bikes in Karachi</a>
+      <a href="#">Bikes in Lahore</a>
+      <a href="#">Bikes in Rawalpindi</a>
+      <a href="#">Bikes in Faisalabad</a>
+      <a href="#">Bikes in Bahawalpur</a>
+      <a href="#">Bikes in Peshawar</a>
+    </div>
+
+    <div class="footer-col">
+      <h3>Sell</h3>
+      <a href="#">Sell Your Car</a>
+      <a href="#">Sell Your Bike</a>
+      <br>
+      <img src="Capture.PNG 9.PNG" alt="" style="width:100px;">
+    </div>
+
+  </div>
+</section>
+<script>
+// YEAR RANGE
+const yearMin = document.getElementById("yearMin");
+const yearMax = document.getElementById("yearMax");
+const yearValue = document.getElementById("yearValue");
+
+function updateYear() {
+    let min = parseInt(yearMin.value);
+    let max = parseInt(yearMax.value);
+
+    if (min > max) {
+        [min, max] = [max, min]; // swap
+    }
+
+    yearValue.innerText = `${min} - ${max}`;
+}
+
+yearMin.addEventListener("input", updateYear);
+yearMax.addEventListener("input", updateYear);
+
+
+// PRICE RANGE
+const priceMin = document.getElementById("priceMin");
+const priceMax = document.getElementById("priceMax");
+const priceValue = document.getElementById("priceValue");
+
+function formatPrice(value) {
+    if (value >= 1000000) {
+        return (value / 1000000) + " Crore";
+    } else {
+        return (value / 100000) + " Lac";
+    }
+}
+
+function updatePrice() {
+    let min = parseInt(priceMin.value);
+    let max = parseInt(priceMax.value);
+
+    if (min > max) {
+        [min, max] = [max, min];
+    }
+
+    priceValue.innerText = `${formatPrice(min)} - ${formatPrice(max)}`;
+}
+
+priceMin.addEventListener("input", updatePrice);
+priceMax.addEventListener("input", updatePrice);
+</script>
+</body>
+</html>
